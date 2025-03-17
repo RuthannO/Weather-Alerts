@@ -70,9 +70,9 @@ for alert in weather_alerts:
 
 #**********************************************
     cursor.execute("""
-    INSERT INTO weather_alerts (event_time,event, region, severity,urgency,description,sender)
-    VALUES (%s, %s, %s, %s,%s,%s,%s)
-""", (event_time, region, severity, event, urgency, description, sender))
+    INSERT INTO weather_alerts (event_time,severity, region , urgency, description, sender)
+    VALUES (%s, %s, %s, %s, %s, %s)
+""", (event_time, severity,region, urgency, description, sender))
     conn.commit()
 
     print(f"✅ Stored: {event} | Severity: {severity}")
